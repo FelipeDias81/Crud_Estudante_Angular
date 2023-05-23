@@ -1,1 +1,86 @@
-<p>estudante works!</p>
+<div class="row">
+    <div class="col-8 m-auto">
+
+        <form [formGroup]="formGroupStudent">
+            <div class="mb-3">
+                <div class="display-6 text-center">
+                    Cadastro de Estudante
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" formControlName="name" class="form-control" id="name" placeholder="Nome">
+                <div *ngIf="submitted && name.invalid">
+                    <small class="text-danger">Nome inválido!</small>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Idade</label>
+                <input type="number" formControlName="age" class="form-control" id="age" placeholder="Idade">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Telefone</label>
+                <input type="text" formControlName="phone" class="form-control" id="phone" placeholder="Telefone">
+                <div *ngIf="submitted && phone.invalid">
+                    <small class="text-danger">Telefone inválido!</small>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" formControlName="email" class="form-control" id="email" placeholder="Email">
+                <div *ngIf="submitted && email.invalid">
+                    <small class="text-danger">Email inválido!</small>
+                </div>
+            </div>
+            <div class="mb-3 d-flex justify-content-end">
+                <button class="btn btn-primary me-1" title="Limpar" (click)="clear()">Limpar</button>
+                <button class="btn btn-success" title="Salvar" (click)="save()"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z" />
+                        <path fill-rule="evenodd"
+                            d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z" />
+                    </svg>Salvar</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of student">
+            <th scope="row">{{student.id}}</th>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.phone}}</td>
+            <td>{{student.email}}</td>
+            <td>
+                <button class="btn btn-warning me-2" title="Editar" (click)="edit(student)"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path
+                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                        <path fill-rule="evenodd"
+                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                    </svg> Editar</button>
+                <button class="btn btn-danger" title="Excluir" (click)="delete(student)"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                    </svg> Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+{
+  "estudante": [
+    {
+      "id": 1,
+      "name": "Roberto",
+      "age": 23,
+      "phone": "(33)98700-5543",
+      "email": "robertinhonilgrau69@gmila.com"
+    },
+    {
+      "id": 2,
+      "name": "Roberto",
+      "age": 23,
+      "phone": "(33)98700-5543",
+      "email": "robertinhonilgrau69@gmila.com"
+    },
+    {
+      "id": 3,
+      "name": "Juca",
+      "age": 64,
+      "phone": "(12)94651-5762",
+      "email": "robertinhonilgrau69@gmila.com"
+    },
+    {
+      "id": 4,
+      "name": "Roberto sus",
+      "age": 23,
+      "phone": "(33)98700-5543",
+      "email": "roberti88@gmila.com"
+    },
+    {
+      "id": 5,
+      "name": "Felipe Dias da Silveira",
+      "age": 18,
+      "phone": "11995006626",
+      "email": "felipedias501@gmail.com"
+    }
+  ]
+}
